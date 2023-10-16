@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getLeadsManually = async (
-  searchParams,
+  body,
   page,
   data,
   setData,
@@ -9,26 +9,31 @@ const getLeadsManually = async (
   setIsLoading,
   setIsError
 ) => {
-  const randomQueryParam = `random=${Math.random()}`;
-  const url = `https://api.apollo.io/v1/mixed_people/search?${searchParams}&${randomQueryParam}`;
+  const url = `https://api.apollo.io/v1/mixed_people/search`;
+
   try {
-    const res = await axios.post(url, {
-      page,
-      per_page: 100,
-    }, {
-      headers: {
-        "Cache-Control": "no-cache",
-        "Content-Type": "application/json",
+    const res = await axios.post(
+      url,
+      {
+        ...body,
+        page,
+        per_page: 100,
       },
-    });
+      {
+        headers: {
+          "Cache-Control": "no-cache",
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const userData = await res.data.people;
-    console.log(url, userData);
     setPage(page + 1);
     setData([...data, ...userData]);
     setIsLoading(false);
+    console.log(userData);
     return data;
   } catch (err) {
-    setIsError("Something went wrong while fetching data");
+    setIsError(err.message);
     setIsLoading(false);
     return null;
   }
