@@ -21,7 +21,7 @@ const getLeadsManually = async (
       },
       {
         headers: {
-          "Access-Control-Allow-Origin": "https://apollo-scraper.netlify.app",
+          // "Access-Control-Allow-Origin": "https://apollo-scraper.netlify.app",
           "Cache-Control": "no-cache",
           "Content-Type": "application/json",
         },
