@@ -9,6 +9,7 @@ const getInitialData = async (url, apiKey) => {
     const body = { api_key: apiKey, per_page: 100, ...postedData };
     const res = await axios.post(getUrl, body, {
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "Cache-Control": "no-cache",
         "Content-Type": "application/json",
       },

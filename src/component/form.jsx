@@ -60,7 +60,7 @@ const Form = ({ data, setData, progress, setProgress, page, setPage }) => {
           const init = await getInitialData(url, apiKey);
           setInitData(init);
         } catch (err) {
-          setIsError(err.response.data);
+          setIsError(err.response.data || err.message);
         }
       }
     };

@@ -21,6 +21,7 @@ const getLeadsManually = async (
       },
       {
         headers: {
+          "Access-Control-Allow-Origin": "*",
           "Cache-Control": "no-cache",
           "Content-Type": "application/json",
         },
