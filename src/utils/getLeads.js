@@ -27,7 +27,7 @@ export default async function getLeads(
       };
       let res = await axios.post(url, bodyObj, {
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": "https://app.apollo.io",
           "Cache-Control": "no-cache",
           "Content-Type": "application/json",
         },
