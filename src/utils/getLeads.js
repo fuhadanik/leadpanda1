@@ -27,7 +27,7 @@ export default async function getLeads(
       };
       let res = await axios.post(url, bodyObj, {
         headers: {
-          "Access-Control-Allow-Origin": "https://app.apollo.io",
+          "Access-Control-Allow-Origin": "https://apollo-scraper.netlify.app",
           "Cache-Control": "no-cache",
           "Content-Type": "application/json",
         },
