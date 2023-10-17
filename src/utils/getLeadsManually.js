@@ -31,10 +31,9 @@ const getLeadsManually = async (
     setPage(page + 1);
     setData([...data, ...userData]);
     setIsLoading(false);
-    console.log(userData);
     return data;
   } catch (err) {
-    setIsError(err.message);
+    setIsError(err?.message || "Something went wrong");
     setIsLoading(false);
     return null;
   }

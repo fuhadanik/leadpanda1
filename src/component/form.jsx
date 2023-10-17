@@ -43,7 +43,7 @@ const Form = ({ data, setData, progress, setProgress, page, setPage }) => {
               setIsError
             );
       } catch (err) {
-        setIsError(err.message);
+        setIsError(err?.message || "Something went wrong");
         setIsLoading(false);
       }
     } else {
@@ -60,7 +60,7 @@ const Form = ({ data, setData, progress, setProgress, page, setPage }) => {
           const init = await getInitialData(url, apiKey);
           setInitData(init);
         } catch (err) {
-          setIsError(err.response.data || err.message);
+          setIsError(err?.message || "Something went wrong");
         }
       }
     };

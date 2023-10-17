@@ -33,11 +33,10 @@ export default async function getLeads(
         },
       });
       const userData = await res.data.people;
-      console.log(userData);
       dataArray.push(...userData);
       setData(dataArray);
     } catch (err) {
-      setIsError(err.message);
+      setIsError(err?.message || "Something went wrong");
       setIsLoading(false);
       break;
     }
@@ -66,8 +65,8 @@ export default async function getLeads(
 //     dataArray.push(...userData);
 //     setData(dataArray);
 //   } catch (err) {
-//     setIsError("Something went wrong while fetching data");
-//     setIsLoading(false);
+  // setIsError(err?.message || "Something went wrong");
+  //     setIsLoading(false);
 //     break;
 //   }
 //   page = page + 1;
